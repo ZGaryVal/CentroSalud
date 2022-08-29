@@ -1,0 +1,105 @@
+
+body{
+    background-color:rgb(211, 211, 211);
+  }
+  
+  /*  Botones del menu*/
+  
+  .btn{
+      background-color: rgb(15, 141, 163);
+      width: 100%;
+      height: 50px;
+    }
+  
+  
+  /* Cabecera de logo y nombre */
+  .parents {
+    display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .divh1 { grid-area: 1 / 1 / 2 / 2; }
+  .divh2 { 
+    grid-area: 1 / 2 / 2 / 7; 
+    padding:20px;
+    padding-top:50px;
+    padding-left:150px;
+    -webkit-text-stroke: 2px white;
+    font-size: 250%;
+    font-family: 'Trebuchet MS';
+  }
+  
+  .top{
+      padding: 10px;
+      background-color: #16705A;
+    }
+  
+  
+  
+  /* Menu y Contenido */
+  
+  .izq{
+      float: left;
+      width: 20%;
+      height: max-content;
+      background-color: rgb(39, 145, 109);
+    }
+    .der{
+      float: right;
+      width: 80%;
+      height: 100%;
+      background-color: blueviolet;
+    }
+
+      /* TABLA */
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #126B4C;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #326B57;
+      }
+
+        /* texto */
+
+    .title{
+        font-size: 100px;
+        font-family: 'Trebuchet MS';
+        color: white;
+        -webkit-text-stroke: 1px black;
+    }
+
+
+    /*Cards*/
+    .title{
+      padding: 10px;
+      background-color: #16705A;
+      border-radius: 2px;
+      text-align: center;
+    }
+    
+    :root {
+      --gradient: linear-gradient(to left top, #219630 10%, #0b7923 90%) !important;
+    }
+    
+    
+    .card {
+      background: rgb(90, 90, 90);
+      border: 1px solid #418b16;
+      color: rgba(250, 250, 250, 0.8);
+      margin-bottom: 2rem;
+    }
+    .text-white{
+      color: aliceblue;
+    }
