@@ -145,7 +145,7 @@ grid-row-gap: 0px;
 <br><br>
 <a type="button"  href="listar.php" style='padding-top:10px;' class="btna btn btn-success">Registros medicos</a>
 <br><br>
-<a type="button"  href="" style='padding-top:10px;' class="btna btn btn-success">Galeria</a>
+<a type="button"  href="galeria.php" style='padding-top:10px;' class="btna btn btn-success">Galeria</a>
 <br><br>
 <a type="button"  href="" style='padding-top:10px;' class="btna btn btn-success">Configuración</a>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

@@ -1,3 +1,7 @@
+<?php
+include 'config\conexion.php';
+$con = conexion();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,12 +12,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Lotes y Servicios</title>
   </head>
   <style>
 
 body{
-  background-color:rgb(211, 211, 211);
+    background-color:rgb(211, 211, 211);
 }
 
 /*  Botones del menu*/
@@ -23,6 +27,18 @@ body{
     width: 100%;
     height: 50px;
   }
+
+  /* Botones de la tabla */
+  .btn-info{
+    margin-left:10%;
+  background-color: #26BD97;
+    width: 80%;
+    border-radius: 48px 48px 48px 48px;
+-moz-border-radius: 48px 48px 48px 48px;
+-webkit-border-radius: 48px 48px 48px 48px;
+border: 0px solid #000000;
+  }
+
 
 
 /* Cabecera de logo y nombre */
@@ -63,9 +79,48 @@ grid-row-gap: 0px;
     float: right;
     width: 80%;
     height: 100%;
-    background-color: blueviolet;
+    
   }
 
+  /* TABLA */
+  table {
+        font-family: 'Trebuchet MS';
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #29a9c9;
+        text-align: left;
+        padding: 8px;
+      }
+      
+    
+    /* texto */
+    .title{
+        font-size: 50px;
+        font-family: 'Trebuchet MS';
+        color: white;
+        -webkit-text-stroke: 2px #326B57;
+    }
+/* titulo y busqueda */
+    .izq2{
+    float: left;
+    width: 50%;
+  }
+  .der2{
+    float: right;
+    width: 40%;
+  }
+/* busqueda */
+  .izq3{
+    float: left;
+    width: 50%;
+  }
+  .der3{
+    float: right;
+    width: 50%;
+  }
 </style>
   <body>
     <!-- HEADER -->
@@ -90,7 +145,7 @@ grid-row-gap: 0px;
 <br><br>
 <a type="button"  href="listar.php" style='padding-top:10px;' class="btna btn btn-success">Registros medicos</a>
 <br><br>
-<a type="button"  href="" style='padding-top:10px;' class="btna btn btn-success">Galeria</a>
+<a type="button"  href="galeria.php" style='padding-top:10px;' class="btna btn btn-success">Galeria</a>
 <br><br>
 <a type="button"  href="" style='padding-top:10px;' class="btna btn btn-success">Configuración</a>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -100,7 +155,67 @@ grid-row-gap: 0px;
 
   <!-- CONTENIDO -->
   <div class="der">
-    pacientes.php 404
+    <div class="container">
+    <br>
+
+    <div class="izq2">
+        <!-- TITULO -->
+    <p class='title'>Pacientes</p>
+    </div>
+    <div class="der2">
+      
+        <!-- BARRA DE BUSQUEDA -->
+         <div class="izq3">
+            <input style='padding-top:10px;margin-top:5px;' class="form-control" type="search" placeholder="Nombre o CI" aria-label="Search">&nbsp;&nbsp;
+        </div>
+        <div class="der3">
+        &nbsp;&nbsp;&nbsp;<button style='margin-top:10px;background-color:white;' class="btn btn-outline-success " type="submit">Buscar</button>&nbsp;&nbsp;
+          <a href="insertarpaciente.php"><button type="button" style='margin-top:10px;' class="btn btn-danger">+ Registrar cliente</button></a>
+        </div>      
+    </div>
+<br>
+
+    <!-- tabla -->
+<table class='table table-success table-striped'>
+  <thead>
+    <tr>
+        <th>#</th>
+        <th>CI</th>
+        <th>Nombre paciente</th>
+        <th>Número de ref.</th>
+        <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    $sql = "SELECT * FROM pacientes";
+    $obj = pg_query($con,$sql);
+    $i = 0;
+    while ($fila = pg_fetch_array($obj)){
+       
+        $i++;
+        ?>
+        <tr>
+            <td><?=$i?></td>
+            <td><?=$fila[1]?></td>
+            <td><?=$fila[2]?> <?=$fila[3]?> <?=$fila[4]?></td>
+            <td><?=$fila[7]?></td>
+            <td>      
+              <div style='text-align: center;'>
+                <a href="modificarpaciente.php"><button type="button" class="btn btn-warning">Editar</button></a>
+                <a href=""><button type="button" class="btn btn-success">Ver</button></a>
+              </div>                                  
+            </td>
+            
+        </tr>
+        <?php
+    }
+    ?>
+  </tbody>
+</table>
+ <!-- fin tabla -->
+    </div>
+
   </div>
 </div>
 

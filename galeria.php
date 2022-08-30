@@ -173,26 +173,13 @@ $con = conexion();
   <!-- derecha Contendio-->
   <div class="der">
     <!-- NOmbre del paciente -->
-      <div class="container">
-        <br>
-        <?php
-          $id_paciente = $_GET["t"];
-          $query = 'select nombre_paciente,apellido_pat_paciente,apellido_mat_paciente from pacientes where id_paciente='.$id_paciente.';';
-          $execute = pg_query($con,$query);
-          while ($efe = pg_fetch_array($execute)){
-        ?>
-        <!-- Dentro de while NOMBRE  -->
-          <h1 style='font-family: Trebuchet MS;'>Paciente: <?=$efe[0]?>  <?=$efe[1]?>  <?=$efe[2]?></h1>      
-        <?php
-          }
-        ?>
-      </div>
+      
       <div class="cards">
         <div class="container mx-auto mt-4">
           <div class="row">
             <?php
-              $id_paciente = $_GET["t"];
-              $sql = 'select * from fn_listar_registros_por_paciente('.$id_paciente.');';
+              //$id_paciente = $_GET["t"];
+              $sql = 'SELECT img.titulo, img.link, categoria_enfermedad.descripcion FROM imagen img INNER JOIN categoria_enfermedad ON categoria_enfermedad.id_categoria = img.id_categoria;';
               $obj = pg_query($con,$sql);
               $i = 0;
               while ($fila = pg_fetch_array($obj)){
@@ -202,20 +189,12 @@ $con = conexion();
               
                     <div class="col-md-4">
                         <div class="card" style="width: 18rem;">
-                            <img src="<?=$fila[6]?>" class="card-img-top" alt="...">
+                            <img src="<?=$fila[1]?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Diagnostico final: <br><br><p class='title'> <?=$fila[4]?></p></h5>
-                                <h6 class="text-white  mb-2 " >Fecha: <?=$fila[5]?></h6><br>
-                                <div class="izq2">
-                                  <td><a type="button" class="btn-info" href="verregistro.php?t=<?=$fila[3]?>"><button type="button" class="btn btn-info">Ver</button></a></td>
-                                </div>
-                                <div class="der2">
-                                  <td><a type="button" class="btn-info" href=""><button type="button" class="btn btn-info">Editar</button></a></td>
-                                </div>
+                                <h5 class="card-title">Cateogoria: <u><?=$fila[2]?></u> </h5>                            
                             </div>
                         </div>
                     </div>    
-                
             <?php
             }
             ?>

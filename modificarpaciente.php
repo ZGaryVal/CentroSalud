@@ -119,10 +119,10 @@ table {
   /* Cards */
 
   .title{
-      padding: 10px;
-      background-color: #16705A;
-      border-radius: 2px;
-      text-align: center;
+    font-size: 40px;
+        font-family: 'Trebuchet MS';
+        color: white;
+        -webkit-text-stroke: 2px black;
     }
     :root {
       --gradient: linear-gradient(to left top, #219630 10%, #0b7923 90%) !important;
@@ -142,9 +142,7 @@ table {
 
     /* Ficha medica */
     .name{
-        padding: 20px;
-        background-color: rgb(23, 48, 28);
-        width: max-content;
+        border-bottom: solid rgb(70, 189, 96);
       }
       .image{
         padding: 2px;
@@ -162,10 +160,25 @@ table {
     float: right;
     width: 60%; 
   }
+  .der4{
+    float: right;
+    width: 2%; 
+  }
   .diagnostico{
         background-color: rgb(255, 252, 247);
         color:black;
         padding:10px; 
+      }
+
+
+      /* Form de registro */
+      .forms{
+        background-color:rgb(149, 202, 144);
+        color: black;
+        padding:10px;
+        border-width: 4px;
+        border-style: solid;
+        border-image: linear-gradient(to right, rgb(70, 189, 96), rgb(103, 109, 105)) 1;
       }
 </style>
   <body>
@@ -200,52 +213,59 @@ table {
       <div class="container">
         <!-- Card de información-->
         <br><br><br>
-        <?php
-          $id_registro = $_GET["t"];
-          $sql = 'select * from fn_mostrar_detalle_registro('.$id_registro.');';
-          $obj = pg_query($con,$sql);
-          $i = 0;
-          while ($fila = pg_fetch_array($obj)){      
-            $i++;
-        ?>
-        <!-- Contenido dentro de jalar los datos -->
-        <div class="card" >
-            <div style='width: 100%;height: 100%;'>
-              <div class="izq3">
-                <!-- Nombre , diagnostico, fecha, final, botones -->
-                <div class="name">
-                  <h2>Paciente: <?=$fila[1]?> <?=$fila[2]?> <?=$fila[3]?> </h2>
-                </div>
-                <div class='container'>
-                  <br>
-                  <h3>Diagnostico:</h3>
-                   <div class="diagnostico">
-                    <?=$fila[4]?>
-                   </div>
-                   <br>
-                   <h3>Fecha: <?=$fila[6]?></h3>
-                   <br>
-                   <h3>Diagnostico final:</h3>
-                   <div class="diagnostico">
-                    <?=$fila[5]?>
-                   </div>
-                   <br>
-                  <div class="botonescard">
-                    <button type="button" class="btn btn-success">Ver paciente</button>
-                  </div>
-                </div>
+        <div class="forms">
+            <div class="name">
+                <a href="index.php" class='der4'><button type="button" class=" btn-danger">X</button></a>     
+                <h3 class='title'>Modificar paciente</h3>         
+            </div>
+            <br><br>
+        <form class="row">
+            <div class="col-md-6">
+              <label class="form-label">Nombre/s</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Apellido/s</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <br><br>
+              <label class="form-label">CI / Nit</label>
+              <input type="email" class="form-control">
+            </div>
+            <div class="col-md-2">
+              <br><br>
+              <label class="form-label">Fecha de nacimiento</label><br>
+              <input type="date"  value="2010-06-01"/>
+            </div>
+            <div class="col-md-3">
+                <br><br>
+              <label class="form-label">Telf. de referencia</label>
+              <input type="number" class="form-control">
+            </div>
+            <div class="col-md-3">
+                <br><br>
+              <label class="form-label">Género</label>
+              <br>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="rdo" checked>
+                <label class="form-check-label">Hombre</label>
               </div>
-              <div class="der3">
-                <!-- imagen -->
-                <div style='margin: 20px;'>
-                  <img class='image' src="<?=$fila[7]?>" alt="Girl in a jacket">
-                </div>                
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="rdo">
+                <label class="form-check-label">Mujer</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="rdo">
+                <label class="form-check-label">Otro</label>
               </div>
             </div>
+            <div class="col-md-12">
+              <br><br>
+              <button class="btn btn-dark form-control" style='color:white;'>MODIFICAR</button>
+            </div>
+        </form>
         </div>
-        <?php
-        }
-        ?>
       </div>
   </div>
 </div>
