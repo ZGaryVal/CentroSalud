@@ -223,6 +223,7 @@ table {
             <div class="col-md-4">
               <label class="form-label">Nombre/s</label>
               <input type="text" name="nombre" class="form-control">
+
             </div>
             <div class="col-md-4">
               <label class="form-label">Apellido paterno</label>

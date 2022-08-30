@@ -12,6 +12,7 @@ $genero = $_POST["genero"];
 
 if($nombre=='' || $apellido_pat=='' || $apellido_mat=='' || $ci=='' || $feccre=='' || $numtelf=='' || $genero==''){
     header ("location:error.php");
+    return;
 }
 
 switch ($genero) {

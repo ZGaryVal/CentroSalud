@@ -202,7 +202,7 @@ grid-row-gap: 0px;
             <td><?=$fila[7]?></td>
             <td>      
               <div style='text-align: center;'>
-                <a href="modificarpaciente.php"><button type="button" class="btn btn-warning">Editar</button></a>
+                <a href="modificarpaciente.php?t=<?=$fila[0]?> "><button type="button" class="btn btn-warning">Editar</button></a>
                 <a href=""><button type="button" class="btn btn-success">Ver</button></a>
               </div>                                  
             </td>

@@ -129,8 +129,8 @@ grid-row-gap: 0px;
   .errorcard{
         padding:10px;
         padding-bottom:10px;
-        background-color:rgb(57, 139, 172);
-        color:white;
+        background-color:rgb(223, 204, 35);
+        color:black;
       }
 </style>
   <body>
@@ -169,7 +169,7 @@ grid-row-gap: 0px;
     <!-- noticia -->
   <div class="errorcard">
   <a href="index.php" class='der4'><button type="button" class=" btn-secondary">x</button></a>  
-            INFORMACIÓN: Exito al ingresar al paciente.
+            INFORMACIÓN: Exito al modificar al paciente.
         </div>
         <!-- fin noticia -->
     <div class="container">

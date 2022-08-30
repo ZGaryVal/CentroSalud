@@ -182,6 +182,11 @@ table {
         border-style: solid;
         border-image: linear-gradient(to right, rgb(70, 189, 96), rgb(103, 109, 105)) 1;
       }
+      .errorcard{
+        padding:10px;
+        background-color:red;
+        color:white;
+      }
 </style>
   <body>
     <!-- HEADER -->
@@ -215,6 +220,9 @@ table {
       <div class="container">
         <!-- Card de información-->
         <br><br><br>
+        <div class="errorcard">
+            ERROR: Debe ingresar todos los campos
+        </div>
         <div class="forms">
             <div class="name">
                 <a href="index.php" class='der4'><button type="button" class=" btn-danger">X</button></a>     
