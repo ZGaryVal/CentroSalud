@@ -133,3 +133,9 @@ body{
         border-style: solid;
         border-image: linear-gradient(to right, rgb(70, 189, 96), rgb(103, 109, 105)) 1;
       }
+
+      .errorcard{
+        padding:5px;
+        background-color:rgb(57, 139, 172);
+        color:white;
+      }
